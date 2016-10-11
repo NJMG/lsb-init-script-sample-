@@ -120,7 +120,7 @@ case "$1" in
 		status_of_proc -p $PIDFILE $DAEMON $DAEMON_NAME && exit 0 || exit $?
 	;;
 	*)
-		echo -e "Usage: $SCRIPTNAME {start|stop|restart|force-reload|status}" >&2
+		echo "Usage: $SCRIPTNAME {start|stop|restart|force-reload|status}" >&2
 		exit 3
 	;;
 esac
