@@ -100,7 +100,6 @@ case "$1" in
 		#	   log_end_msg 0 ;;
 		#	*) log_end_msg 1 ;;
 		#esac
-
 	;;	
 	stop)
 		log_daemon_msg "Stopping $DESC" "$DAEMON_NAME"
@@ -112,7 +111,6 @@ case "$1" in
 		#	   log_end_msg 0 ;;
 		#	*) log_end_msg 1 ;;
 		#esac
-
 	;;	
 	restart|force-reload)
 		$0 stop
@@ -121,9 +119,9 @@ case "$1" in
 	status)
 		status_of_proc -p $PIDFILE $DAEMON $DAEMON_NAME && exit 0 || exit $?
 	;;
-  *)
-	echo -e "Usage: $SCRIPTNAME {start|stop|restart|force-reload|status}" >&2
-	exit 3
+	*)
+		echo -e "Usage: $SCRIPTNAME {start|stop|restart|force-reload|status}" >&2
+		exit 3
 	;;
 esac
 
