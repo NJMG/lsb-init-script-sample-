@@ -29,7 +29,7 @@ SCRIPTNAME=/etc/init.d/$INIT_NAME
 DAEMON_BACKGROUND=true
 DAEMON_MAKE_PIDFILE=true
 
-#nicelevel [-20..0..20 ]: -20 highest prioriy ; 20 slowest prioriy 
+#nicelevel [-20..0..20 ]: -20 highest priority ; 20 slowest priority 
 DAEMON_NICE_LEVEL=10
 #Options ( else left blank )
 DAEMON_ARGS=
