@@ -29,9 +29,9 @@ SCRIPTNAME=/etc/init.d/$INIT_NAME
 DAEMON_BACKGROUND=true
 DAEMON_MAKE_PIDFILE=true
 
-#nicelevel [-20..0..20 ]: -20 highest priority ; 20 slowest priority 
+# nicelevel [-20..0..20 ]: -20 highest priority ; 20 slowest priority 
 DAEMON_NICE_LEVEL=10
-#Options ( else left blank )
+# Options ( else left blank )
 DAEMON_ARGS=
 
 PIDFILE=/var/run/$INIT_NAME.pid
@@ -43,25 +43,25 @@ PIDFILE=/var/run/$INIT_NAME.pid
 # Define LSB log_* functions.
 . /lib/lsb/init-functions
 
-#DAEMON_BACKGROUND:
+# DAEMON_BACKGROUND:
 if [ "$DAEMON_BACKGROUND" = "true" ] ; then
 	DAEMON_BG="--background"
 else
 	unset -v DAEMON_BG 
 fi
-#DAEMON_MAKE_PIDFILE:
+# DAEMON_MAKE_PIDFILE:
 if [ "$DAEMON_MAKE_PIDFILE" = "true" ] ; then
 	DAEMON_MP="--make-pidfile"
 else
 	unset -v DAEMON_MP 
 fi
-#PIDFILE:
+# Pidfile:
 if [ -n "$PIDFILE" ] ; then
 	DAEMON_PF="--pidfile"
 else
 	unset -v DAEMON_MP DAEMON_PF
 fi
-#DAEMON_NICE_LEVEL:
+# DAEMON_NICE_LEVEL:
 if [ -n "$DAEMON_NICE_LEVEL" ] ; then
 	DAEMON_NICE="--nicelevel"
 	DNICE=$DAEMON_NICE_LEVEL
@@ -93,24 +93,24 @@ case "$1" in
 		log_daemon_msg "Starting $DESC" "$DAEMON_NAME"
 		do_start
 		log_end_msg $?
-		#case "$?" in
+		# case "$?" in
 		#	0) sendsigs_omit
 		#	   log_end_msg 0 ;;
 		#	1) log_progress_msg "already started"
 		#	   log_end_msg 0 ;;
 		#	*) log_end_msg 1 ;;
-		#esac
+		# esac
 	;;	
 	stop)
 		log_daemon_msg "Stopping $DESC" "$DAEMON_NAME"
 		do_stop
 		log_end_msg $?
-		#case "$?" in
+		# case "$?" in
 		#	0) log_end_msg 0 ;;
 		#	1) log_progress_msg "already stopped"
 		#	   log_end_msg 0 ;;
 		#	*) log_end_msg 1 ;;
-		#esac
+		# esac
 	;;	
 	restart|force-reload)
 		$0 stop
